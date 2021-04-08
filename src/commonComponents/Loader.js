@@ -11,13 +11,19 @@ export const LoadMore = () => (
   </View>
 );
 
+export const PageLoader = () => (
+  <View style={styles.loaderContainer}>
+    <View style={styles.loaderWrp}>
+      <ActivityIndicator
+        size={Platform.OS === 'ios' ? 'large' : 50}
+        color={colors.blue}
+      />
+    </View>
+  </View>
+);
+
 const styles = StyleSheet.create({
   flex: {flex: 1},
-  cFlex: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   loaderContainer: {
     flex: 1,
     backgroundColor: '#E6E6E6',

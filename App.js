@@ -1,11 +1,13 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import List from './src/screens/List';
+// import List from './src/screens/List';
+import Routes from './src/routes';
+import 'react-native-gesture-handler';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <List />
+      <Routes />
     </SafeAreaView>
   );
 };

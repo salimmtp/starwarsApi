@@ -4,9 +4,9 @@ import Item from './Item';
 import axios from 'axios';
 import {BASE_URL} from '../../config';
 import {LoadMore} from '../../commonComponents/Loader';
-import {colors} from '../../config/theme';
+import Header from '../../commonComponents/Header';
 
-export default () => {
+export default ({navigation}) => {
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
   const [total, setTotal] = useState(0);
@@ -38,7 +38,7 @@ export default () => {
       <Item
         planetName={item.name}
         onPress={() => {
-          alert(item.url);
+          navigation.navigate('Details', {url: item.url});
         }}
       />
     );
@@ -59,9 +59,7 @@ export default () => {
 
   return (
     <View style={styles.flex}>
-      <View style={styles.headerBar}>
-        <Text style={styles.headingTxt}>Planets</Text>
-      </View>
+      <Header heading="Planets" />
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -80,11 +78,4 @@ const styles = StyleSheet.create({
   flex: {
     flex: 1,
   },
-  headerBar: {
-    height: 65,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.primary,
-  },
-  headingTxt: {color: colors.white, fontSize: 20, fontWeight: 'bold'},
 });
