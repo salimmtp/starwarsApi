@@ -2,11 +2,9 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Header from '../../commonComponents/Header';
 import {InputText} from '../../commonComponents/Inputs';
+import {Formik} from 'formik';
 import * as yup from 'yup';
 import ModalDropdown from 'react-native-modal-dropdown';
-
-import {Formik} from 'formik';
-
 import {colors} from '../../config/theme';
 
 const schema = yup.object().shape({
@@ -41,7 +39,6 @@ export default () => {
               <View style={styles.rightTxt}>
                 <InputText
                   value={values.name}
-                  height={40}
                   placeholder="Name"
                   onChangeText={handleChange('name')}
                   errorFlag={errors.name && touched.name}
@@ -82,7 +79,6 @@ export default () => {
               <View style={styles.rightTxt}>
                 <InputText
                   value={values.age}
-                  height={40}
                   placeholder="age"
                   keyboardType="number-pad"
                   onChangeText={handleChange('age')}
